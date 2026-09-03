@@ -1,0 +1,1 @@
+chrome.runtime.onMessage.addListener((msg, s, resp) => { if(msg.action === 'getLinksPro') { chrome.storage.local.get('links', d => resp({links: d.links || [], count: (d.links || []).length, tags: [...new Set((d.links || []).flatMap(l => l.tags || []))]})); return true; } });
